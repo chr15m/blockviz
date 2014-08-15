@@ -1,47 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>three.js webgl - orbit controls</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-		<style>
-			body {
-				color: #000;
-				font-family: 'Varela Round', sans-serif;
-				font-size:13px;
-				text-align:center;
-				font-weight: bold;
-				background-color: #fff;
-				margin: 0px;
-				overflow: hidden;
-			}
-
-			#info {
-				color: #555;
-				position: absolute;
-				top: 0px; width: 100%;
-				padding: 5px;
-				font-size: 2em;
-				text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
-			}
-
-			a {
-				text-decoration: none;
-			}
-
-			a:hover {
-				text-decoration: none !important;
-			}
-		</style>
+		<title>blockviz</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css"/>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" type="text/css"/>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" type="text/css"/>
+		<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Varela+Round' type='text/css'/>
+		<link rel="stylesheet" href='blockviz.css' type='text/css'/>
 	</head>
-
+	
 	<body>
-		<div id="container"></div>
 		<div id="info">
 			<a href="http://chr15m.github.com/blockviz" target="_blank">blockviz</a> - most elite 3d bitcorn address/transaction visualizer of time [<a href='http://github.com/chr15m/blockviz'>github</a>].
 		</div>
-
+		
+		<div id="ui" class='jumbotron'>
+			<div><button id='address-toggle' class='btn pull-right'><i class='fa fa-folder-open-o'></i></button></div>
+			<div><textarea id='addresses' class='form-control'></textarea></div>
+		</div>
+		
+		<div id="container"><img id="loader" src='loader.gif'/></div>
+		
 		<!-- Three.js -->
 		<script src="http://threejs.org/build/three.min.js"></script>
 		<script src="http://threejs.org/examples/js/controls/OrbitControls.js"></script>
@@ -49,11 +30,11 @@
 		<script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
 		
 		<!-- Bootstrap -->
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 		
-		<script src="models.js"></script>
+		<script src="data.js"></script>
 		<script src="ui.js"></script>
 		<script src="viz.js"></script>
 	</body>

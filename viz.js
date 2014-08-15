@@ -56,17 +56,17 @@ function init() {
 
 	light = new THREE.AmbientLight( 0x222222 );
 	scene.add( light );
-
-
+	
 	// renderer
-
+	
 	renderer = new THREE.WebGLRenderer( { antialias: false } );
 	renderer.setClearColor( scene.fog.color, 1 );
 	renderer.setSize( window.innerWidth, window.innerHeight );
-
-	container = document.getElementById( 'container' );
+	
+	container = document.createElement('div'); // document.getElementById( 'container' );
+	document.body.appendChild(container);
 	container.appendChild( renderer.domElement );
-
+	
 	stats = new Stats();
 	stats.domElement.style.position = 'absolute';
 	stats.domElement.style.top = '0px';
