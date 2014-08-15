@@ -3,7 +3,7 @@ $(function() {
 	var q = document.location.href.split("?")[1];
 	if (q) {
 		// if there is a comma separated list of addresses passed in
-		if (q.indexOf(",") != -1) {
+		if (q.indexOf(",") != -1 || q[0] == "1") {
 			$("#addresses").text(q.replace(/\,/g, "\n"));
 			updateFromAddressBox();
 		// if there is a URL passed in
