@@ -53,6 +53,14 @@ a:hover {
 	color: red;
 }
 
+#ui #loading {
+	text-align: left;
+	min-width: 30em;
+	min-height: 31px;
+	margin-left: 31px;
+	background-image: url('loader.gif') no-repeat;
+}
+
 #addresses {
 	display: none;
 }
