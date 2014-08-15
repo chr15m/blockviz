@@ -19,7 +19,7 @@ $(function() {
 	var timer = null;
 	
 	// when addresses are changed, trigger the update
-	$('#addresses').on('change blur paste keyup', function () {
+	$('#addresses').on('change paste keyup', function () {
 		if (timer) {
 			clearTimeout(timer);
 		}
@@ -28,4 +28,10 @@ $(function() {
 			parseAddresses($(element).val());
 		}, 100);
 	});
+	
+	// when we first launch, check what addresses to load
+	var q = document.location.href.split("?")[1];
+	if (q) {
+		alert(q);
+	}
 });
