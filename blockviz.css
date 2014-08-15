@@ -35,7 +35,7 @@ a:hover {
 	border-left: 1px solid #888;
 	border-bottom: 1px solid #888;
 	border-bottom-left-radius: 5px;
-	max-width: 34em;
+	width: 34em;
 }
 
 #ui div {
@@ -50,15 +50,20 @@ a:hover {
 
 #ui #log {
 	text-align: left;
+}
+
+#ui #log .alert {
 	color: red;
 }
 
 #ui #loading {
 	text-align: left;
-	min-width: 30em;
 	min-height: 31px;
-	margin-left: 31px;
-	background-image: url('loader.gif') no-repeat;
+	padding-left: 35px;
+	background-image: url('loader.gif');
+	display: none;
+	background-repeat: no-repeat;
+	padding-top: 0.5em;
 }
 
 #addresses {

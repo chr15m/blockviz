@@ -24,7 +24,7 @@ $(function() {
 	$("#loader").hide();
 	
 	// receive clicks on the ui
-	$("#ui").on("click mousedown DOMMouseScroll mousewheel", function(ev) {
+	$("#ui").on("click mousedown DOMMouseScroll mousewheel keydown", function(ev) {
 		ev.stopPropagation();
 	});
 	
@@ -56,7 +56,7 @@ function updateFromAddressBox() {
 		$("#log").append("Rejected addresses:<br/>");
 		for (var r=0; r<parsed.rejected.length; r++) {
 			var escaped = parsed.rejected[r].replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-			$("#log").append(escaped + "<br/>");
+			$("#log").append("<span class='alert'>" + escaped + "</span><br/>");
 		}
 	}
 	// fetch good addresses
@@ -65,7 +65,7 @@ function updateFromAddressBox() {
 		markKnownAddresses(parsed.addresses);
 		fetchAddresses(parsed.addresses);
 	} else {
-		$("#log").append("No good addresses found.<br/>");
+		$("#log").append("<span class='alert'>No good addresses found.</span><br/>");
 		$("#loading").hide();
 	}
 }
@@ -79,8 +79,9 @@ function fetchAddresses(addresses) {
 	var address_blocks = Math.ceil(addresses.length / jump);
 	for (var b=0; b<address_blocks; b++) {
 		$.getJSON("https://blockchain.info/multiaddr?cors=true&active=" + addresses.slice(b * jump, (b+1) * jump).join("|"), function(data) {
-			console.log(data.addresses);
+			// console.log(data);
 			updateKnownAddresses(data.addresses);
+			updateTransactionLinks(data.txs);
 			address_count -= data.addresses.length;
 			$("#loading").text("Fetching " + address_count + " addresses.");
 			checkAddressCount(address_count);
@@ -93,5 +94,7 @@ function fetchAddresses(addresses) {
 function checkAddressCount(address_count) {
 	if (address_count == 0) {
 		$("#loading").hide();
+		$("#log").append(_(known_addresses).keys().length + " addresses.<br/>");
+		$("#log").append(_(known_transactions).keys().length + " transactions.<br/>");
 	}
 }

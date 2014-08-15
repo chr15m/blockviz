@@ -99,3 +99,13 @@ function render() {
 	stats.update();
 
 }
+
+// lists of meshes corresponding to nodes and edges of the graph
+node_list = {};
+edge_list = {};
+
+// called whenever our list of nodes and edges is updated
+registerDataCallback(function(nodes, edges) {
+	
+});
+
