@@ -35,6 +35,7 @@ a:hover {
 	border-left: 1px solid #888;
 	border-bottom: 1px solid #888;
 	border-bottom-left-radius: 5px;
+	max-width: 34em;
 }
 
 #ui div {
@@ -47,10 +48,18 @@ a:hover {
 	min-width: 32em;
 }
 
+#ui #log {
+	text-align: left;
+	color: red;
+}
+
 #addresses {
 	display: none;
 }
 
 #loader {
 	margin-top: 10em;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }

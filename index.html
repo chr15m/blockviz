@@ -12,17 +12,19 @@
 	</head>
 	
 	<body>
-		<div id="info">
-			<a href="http://chr15m.github.com/blockviz" target="_blank">blockviz</a> - most elite 3d bitcorn address/transaction visualizer of time [<a href='http://github.com/chr15m/blockviz'>github</a>].
-		</div>
-		
 		<div id="ui" class='jumbotron'>
 			<div><button id='address-toggle' class='btn pull-right'><i class='fa fa-folder-open-o'></i></button></div>
 			<div><textarea id='addresses' spellcheck='false' class='form-control'></textarea></div>
+			<div id="loading"></div>
+			<div id="log"></div>
 		</div>
 		
-		<div id="container"><img id="loader" src='loader.gif'/></div>
+		<img id="loader" src="loader.gif"/>
 		
+		<div id="info">
+			<a href="http://chr15m.github.com/blockviz" target="_blank">blockviz</a> - most elite 3d bitcorn address/transaction visualizer of time [<a href='http://github.com/chr15m/blockviz'>github</a>].
+		</div>
+
 		<!-- Three.js -->
 		<script src="http://threejs.org/build/three.min.js"></script>
 		<script src="http://threejs.org/examples/js/controls/OrbitControls.js"></script>
